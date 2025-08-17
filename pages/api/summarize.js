@@ -36,7 +36,7 @@ export default async function handler(req, res) {
     
 
 
-    const groq = new Groq({ apiKey: process.env.NEXT_PUBLIC_GROQ_API_KEY});
+    const groq = new Groq({ apiKey: process.env.GROQ_API_KEY});
     console.log("API Key:", groq);
     const completion = await groq.chat.completions.create({
       messages: [
