@@ -33,9 +33,11 @@ export default async function handler(req, res) {
 
     const text = fs.readFileSync(uploadedFile.filepath, "utf-8");
     const prompt = fields.prompt || "Summarize the meeting notes.";
+    
 
-    const groq = new Groq({ apiKey: process.env.GROQ_API_KEY});
 
+    const groq = new Groq({ apiKey: process.env.NEXT_PUBLIC_GROQ_API_KEY});
+    console.log("API Key:", groq);
     const completion = await groq.chat.completions.create({
       messages: [
         { role: "system", content: "You are a meeting notes summarizer." },
